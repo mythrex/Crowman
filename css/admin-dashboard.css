@@ -1,0 +1,28 @@
+.card-container{
+  padding-top: 20px;
+}
+/*box*/
+box{
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+.line-overview .token-added{
+  border: 1px solid #BDBDBD;
+  background: #BDBDBD;
+}
+.line-overview .active{
+  border: 1px solid #FFC107;
+  background: #FFC107;
+}
+
+#input-token-no{
+  margin-bottom: 10px;
+}
+#add-token{
+  margin-bottom: 20px;
+}
