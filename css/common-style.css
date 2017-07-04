@@ -23,6 +23,11 @@ body{
 .navbar .navbar-brand{
   color: #F44336;
 }
+.navbar .navbar-brand>img{
+  height: 32px;
+  width: 32px;
+  margin-right: 5px;
+}
 .navbar .navbar-nav>.active>.nav-link{
   color: #FFC107;
 }
@@ -59,18 +64,16 @@ body{
   color: White;
 }
 /*Button*/
-.btn{
-  border-radius: 40px;
-}
 .btn-default{
   background: #FFC107;
   color: White;
   margin-top: 5px;
 }
 .btn-default:hover{
-  background: #d6a207;
+  background: #eab208;
   color: White;
 }
+
 /*cards*/
 .card{
   box-shadow: 5px 5px 3px #BDBDBD;
@@ -103,6 +106,12 @@ body{
   border-radius: 100%;
   width: 128px;
 }
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"],input[type="email"]{
   margin: 5px auto;
+}
+.alert{
+  position: fixed;
+  top: 10%;
+  right: 0;
+  z-index: 1000;
 }

@@ -16,7 +16,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="fa fa-bars"></span>
     </button>
-      <a class="navbar-brand" href="admin-login.html">CrowMan <span class="text-muted">Login Page</span></a>
+      <a class="navbar-brand" href="admin-login.html"><img src="res/crowman-logo.jpg" alt="Logo">CrowMan <span class="text-muted">Login Page</span></a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
@@ -28,9 +28,9 @@
 
   <div class="container main-container">
     <div class="row justify-content-md-center align-items-center">
-      <div class="col-12 col-sm-6 col-md-4">
+      <div class="col-12 col-sm-6 col-md-5">
         <div class="card-crowman-login">
-          <img src="http://via.placeholder.com/150x150/FFCDD2?text=Logo" alt="Logo">
+          <img id="card-logo" src="res/crowman-logo.jpg" alt="Logo">
           <div class="card card-inverse bg-crowman-primary">
             <div class="card-block">
               <div class="card-title">
@@ -47,16 +47,16 @@
     </div>
 
     <div class="row justify-content-md-center align-items-center">
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card card-inverse bg-crowman-accent">
+      <div class="col-12 col-sm-6 col-md-5">
+        <div class="card">
           <div class="card-block">
             <div class="card-title">
               <h2>Admin</h2>
             </div>
             <div class="card-text">
-              <input class="form-control" type="text" id="username" placeholder="Your Token No">
-              <input class="form-control" type="password" id="password" placeholder="Password">
-              <button class="btn btn-secondary" type="button" name="button">Login</button>
+              <input class="form-control" type="text" id="admin-username" placeholder="User Name">
+              <input class="form-control" type="password" id="admin-password" placeholder="Password">
+              <button id="admin-btn-login" class="btn btn-default" type="button" name="button">Login</button>
             </div>
           </div>
         </div>
@@ -69,6 +69,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <script src="js/common.js" charset="utf-8"></script>
-    <script src="js/admin-login" charset="utf-8"></script>
+    <script src="js/admin-login.js" charset="utf-8"></script>
   </body>
 </html>

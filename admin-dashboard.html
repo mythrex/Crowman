@@ -15,7 +15,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars"></span>
       </button>
-        <a class="navbar-brand" href="#">CrowMan <span class="text-muted">Admin-Dashboard</span></a>
+        <a class="navbar-brand" href="admin-login.html"><img src="res/crowman-logo.jpg" alt="Logo">CrowMan <span class="text-muted">Admin-Dashboard</span></a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto hidden-md-up">
 
@@ -25,6 +25,9 @@
           </ul>
 
           <ul class="navbar-nav ml-auto hidden-sm-down">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-login.html">Login</a>
+            </li>
             <li class="nav-item active">
                 <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +49,14 @@
             <li class="sidebar-link">
               <img class="img-circle" src="http://ith-india.com/images/speakers/male.jpg" alt="Admin">
             </li>
-            <li class="sidebar-link"><a href="admin-login.html">Login Page</a></li>
+            <li class="sidebar-link">
+              <ul>
+                <li>Today's Date and time</li>
+                <li>Bank Name: BOB</li>
+                <li>No Of people in the Queue: 45</li>
+                <li>Average Time on Each Person</li>
+              </ul>
+            </li>
           </ul>
         </div>
         <!--main-body with cards-->
@@ -60,7 +70,9 @@
                     <h2>Add Token</h2>
                   </div>
                   <div class="card-text">
-                    <input class="form-control" id="add-token" type="text" placeholder="Enter Token No to add.">
+                    <input class="form-control" id="add-Name" type="text" placeholder="Name">
+                    <input class="form-control" id="add-Name" type="tel" placeholder="Phone no(+91-****)">
+                      <input class="form-control" id="add-Name" type="email" placeholder="Email">
                   </div>
                   <button class="btn btn-secondary" type="button" name="button">Click Here</button>
                 </div>
@@ -71,20 +83,16 @@
               <div class="card card-inverse bg-crowman-accent">
                 <div class="card-block">
                   <div class="card-title">
-                    <h3>Some More Info</h3>
+                    <h3>Last Added</h3>
                   </div>
                   <div class="card-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                      , sed do eiusmod tempor incididunt ut labore et dolore magna
-                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit
-                         esse cillum dolore eu fugiat nulla pariatur.
-                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offici</p>
-                  </div>
+                    <p>Name: </p>
+                    <p>Phone No: </p>
+                    <p>Email: </p>
                 </div>
               </div>
             </div>
+          </div>
 
           </div>
 
@@ -97,66 +105,17 @@
                     <h2>Line OverView</h2>
                   </div>
                   <div class="card-text line-overview">
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box></box>
-                    <box class="token-added"></box>
+                    <span class="fa fa-university">Start Point:</span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user token-added"></span>
                   </div>
                 </div>
               </div>
@@ -166,7 +125,7 @@
               <div class="card card-inverse bg-primary">
                 <div class="card-block">
                   <div class="card-title">
-                    <h2>Queue</h2>
+                    <h2>Last Activity</h2>
                   </div>
                   <div class="card-text">
                     <ul>
@@ -181,7 +140,7 @@
         </div>
       </div>
     </div>
-
+  </div>
     <!-- Scripts -->
     <script src="js/jquery.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
