@@ -106,12 +106,32 @@ body{
   border-radius: 100%;
   width: 128px;
 }
-input[type="text"],input[type="password"],input[type="email"]{
+input[type="text"],input[type="password"],input[type=tel]{
   margin: 5px auto;
 }
+/*alert*/
 .alert{
   position: fixed;
   top: 10%;
   right: 0;
   z-index: 1000;
+}
+/*modal*/
+.modal-dialog{
+  border: 1px solid #D32F2F;
+}
+.modal-header{
+  background: #F44336;
+  color: White;
+}
+.modal-footer{
+  background: #FFCDD2;
+}
+
+#line-overview .fa-user{
+  margin-right: 5px;
+  font-size: 1.1em;
+}
+#line-overview .fa-user:hover{
+  color: #F44336;
 }

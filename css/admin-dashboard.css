@@ -7,12 +7,4 @@
   display: inline-block;
   cursor: pointer;
 }
-.line-overview .token-added{
-  color: #FFC107;
-}
-.line-overview .active{
-  border: 1px solid #FFC107;
-  background: #FFC107;
-}
-
 
