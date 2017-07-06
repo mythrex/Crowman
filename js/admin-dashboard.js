@@ -1,33 +1,35 @@
 var line = {};
+var banlArr = [];
 var bank;
-var notifArr = [];
+var lastAdded = {};
 
-function dispBankDet(ul,bankObj){
-  var date = new Date();
-  ul.append(`
-    <li>${date.getHours()+":"+date.getMinutes()}</li>
-    <li>${bankObj.name}</li>
-    <li>No of People: ${bankObj.queue}</li>
-    <li>Avg. Time: ${bankObj.avgTime}</li>
-    `);
-}
-//Notification function
-
-//add to queue
-function addToActivity(msg){
-  $("#last-activity").append(`
-      <li>${msg}</li>
-    `);
+function Person(id,name,phone,adhaarNo,next=null){
+  this["token-no"] = id;
+  this.name = name;
+  this["adhaar-no"] = adhaarNo;
+  this.phone = phone;
+  this.next = next;
 }
 
 
-$(function(){
+$(function loadPage(){
   //loading bank.json and data.json
   var bankUl = $('#bank-data');
-  $.getJSON('data/bank.json', function(bankData) {
-      $.getJSON('data/data.json',function(lineData,stat) {
-        line = lineData;
-        bank = bankData[0];
+  var lineOverview = $("#line-overview");
+  line = JSON.parse(localStorage.getItem("line-data"));
+  bankArr =  JSON.parse(localStorage.getItem("bank"));
+  if(line == null || bankArr == null){
+    $.getJSON('data/bank.json', function(bankData) {
+        $.getJSON('data/data.json',function(lineData,stat) {
+          console.log("Empty");
+          saveData(bankData,lineData);
+          loadPage();
+        });
+    });
+  }
+  else{
+    bank = bankArr[0];
+  }
         //display Bank Details
         dispBankDet(bankUl,bank);
         //onclick event send the Notification
@@ -36,15 +38,43 @@ $(function(){
           $("#modal-notification").modal('hide');
           addToActivity( "\""+ message + "\": Notification was Sent!")
           makeAlert('info','Notification Sent!');
-          sendNotification(message,notifArr);
+          sendNotification(message);
         });
+
         //add People to line
-        var lineOverview = $("#line-overview");
         refreshLineOverview(lineOverview);
 
         //add By admin
         addByAdmin();
 
+        //showing notifications
+        getNotification();
+        showNotifications();
+
+        //show important Notification
+        importantNotify();
+        //showLastAdded
+        fetchLastAdded();
+        showLastAdded(lastAdded["token-no"],lastAdded["name"],lastAdded["phone"],lastAdded["adhaar-no"]);
+
+        function dispBankDet(ul,bankObj){
+          var date = new Date();
+          ul.empty().append(`
+            <li>${date.getHours()+":"+date.getMinutes()}</li>
+            <li>${bankObj.name}</li>
+            <li>No of People: ${bankObj.queue}</li>
+            <li>Avg. Time: ${bankObj.avgTime}</li>
+            `);
+        }
+        //Notification function
+
+        //add to queue
+        function addToActivity(msg){
+          var date = new Date();
+          $("#last-activity").append(`
+              <li>${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} : ${msg}</li>
+            `);
+        }
         //refresh line
         function refreshLineOverview(lineOverview){
           $(lineOverview).empty();
@@ -61,14 +91,17 @@ $(function(){
             makeAlert("danger","Deleted Crowman-id: "+id,2000);
             addToActivity("Crowman-id: "+id+" removed!");
             //saving data
-            bankData[0] = bank;
-            saveData(bankData,line);
+            bank.queue--;
+            bankArr[0] = bank;
+            saveData(bankArr,line);
             //refreshing line
             refreshLineOverview(lineOverview,id);
+            dispBankDet(bankUl,bank);
           }
         }
         //show last added
         function showLastAdded(id,name,phoneNo,adhaarNo){
+          localStorage.setItem("last-added",JSON.stringify(new Person(id,name,phoneNo,adhaarNo)));
           $("#last-added").empty().append(`
               <p><strong>Id: </strong>${id}</p>
               <p><strong>Name: </strong>${name}</p>
@@ -81,14 +114,35 @@ $(function(){
           var name = $("#add-name").val();
           var phoneNo = $("#add-phone-no").val();
           var adhaarNo = $("#add-adhaar-no").val();
+          console.log(name,phoneNo,adhaarNo);
           var addBtn = $("#admin-add");
           var id;
+          //traverse to last id
           for(id in line){}
           addBtn.click(function(){
-              showLastAdded((+id)+1,name,phoneNo,adhaarNo);
+              bank.queue++;
+              bankArr[0] = bank;
+              dispBankDet(bankUl,bank);
+              id = +id + 1;
+              showLastAdded(id,name,phoneNo,adhaarNo);
+              line[id - 1].next = id;
+              line[id] = new Person(""+ id,name,phoneNo,adhaarNo);
+              //save data
+              saveData(bankArr,line);
+              //update the lineOverview
+              refreshLineOverview(lineOverview,line);
+              //alert
+              makeAlert("success","New Person with crowman-id: +"+id+" added!",2000);
+              //update the addToActivity
+              addToActivity("New Person with crowman-id: +"+id+" added!");
           });
         }
 
-      });
-  });
+        function fetchLastAdded(){
+          var str = localStorage.getItem("last-added");
+          if(str){
+            lastAdded = JSON.parse(str);
+          }
+        }
+
 });

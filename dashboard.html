@@ -12,7 +12,7 @@
   </head>
   <body>
     <!--Navbar-->
-  <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+  <nav class="navbar navbar-toggleable-sm navbar-light bg-faded fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="fa fa-bars"></span>
     </button>
@@ -31,7 +31,7 @@
           <li class="nav-item active">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="fa fa-bell" id="bell"></span>
+                  <span class="fa fa-envelope" id="envelope"></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="notifications">
                   <a class="dropdown-item" href="#">Lunch in 30min</a>
@@ -42,7 +42,7 @@
       </div>
   </nav>
 
-  <div class="container-fluid">
+  <div class="container-fluid main-container">
     <div class="row">
       <div class="col-md-4 col-lg-3 col-xl-2 hidden-sm-down" id="sidebar">
         <ul class="sidebar-nav">
@@ -59,28 +59,36 @@
         <div class="row">
 
           <div class="col-sm-6 col-12">
-            <div class="card  card-inverse bg-crowman-primary">
+            <div class="card">
               <div class="card-block">
-                <div class="card-title">
-                  <h2>Approximate time</h2>
-                </div>
-                <div class="card-text">
-                  <h3>Time:</h3>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <span class="navbar-brand"><img src="res/crowman-logo.jpg" alt="Logo"> CrowMan</span>
+                    </div>
+                  </div>
+                    <div id="user-info" class="card-text">
+                        <p>Token No: </p>
+                        <p>Name: </p>
+                        <p>Adhaar No: </p>
+                        <p>Mobile No: </p>
+                        <p>Bank<span class="fa fa-bank"></bank>: </p>
+                        <p>Branch: </p>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-sm-6 col-12">
-            <div class="card">
+            <div class="card  card-inverse bg-crowman-primary">
               <div class="card-block">
                 <div class="card-title">
                   <h2>Approximate time</h2>
                 </div>
                 <div class="card-text">
-                  <h3>Time:</h3>
+                  <p>Time:</p>
                 </div>
-                <button class="btn btn-default" type="button" name="button">Click Here</button>
               </div>
             </div>
           </div>
@@ -93,87 +101,28 @@
             <div class="card">
               <div class="card-block">
                 <div class="card-title">
-                  <h2>Line OverView</h2>
+                  <h2>Line Overview</h2>
                 </div>
                 <div class="card-text line-overview">
                   <span class="fa fa-university">Start Point:</span>
-                  <box class="current"></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box class="active"></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
-                  <box></box>
+
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-sm-4 col-12 col-md-5">
-            <div class="card">
+            <div class="card card-inverse bg-crowman-accent">
               <div class="card-block">
                 <div class="card-title">
                   <h2>More Info</h2>
                 </div>
                 <div class="card-text">
-                  <p class="lead">No of People before you: 10</p>
-                  <p class="lead">No of People before you: 10</p>
-                  <p class="lead">No of People before you: 10</p>
-                  <p class="lead">No of People before you: 10</p>
-                  <p class="lead">No of People before you: 10</p>
+                  <p>No of People before you: 10</p>
+                  <p>No of People before you: 10</p>
+                  <p>No of People before you: 10</p>
+                  <p>No of People before you: 10</p>
+                  <p>No of People before you: 10</p>
                 </div>
               </div>
             </div>
@@ -185,7 +134,7 @@
   </div>
     <!-- Scripts -->
     <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <script src="js/common.js" charset="utf-8"></script>
     <script src="js/dashboard.js" charset="utf-8"></script>

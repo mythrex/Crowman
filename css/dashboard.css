@@ -1,16 +1,4 @@
-.card-container{
-  padding-top: 20px;
-}
-/*box*/
-.line-overview .current{
-  border: 1px solid #D32F2F;
-  background: #F44336;
-}
-.line-overview .active{
-  border: 1px solid #FFC107;
-  background: #FFC107;
-}
-
-#input-token-no{
-  margin-bottom: 10px;
+.navbar-brand img{
+  height: 32px;
+  width: 32px;
 }

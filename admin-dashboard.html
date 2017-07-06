@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/common-style.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/admin-dashboard.css">
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
@@ -31,10 +29,10 @@
             <li class="nav-item active">
                 <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="fa fa-envelope" id="bell"></span>
+                    <span class="fa fa-envelope" id="envelope"></span>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="notifications">
-                    <a class="dropdown-item" href="#">Lunch in 30min</a>
+
                   </div>
                 </div>
             </li>
@@ -70,7 +68,7 @@
                       <div class="form-group">
                         <input class="form-control" id="add-name" type="text" placeholder="Name">
                         <input class="form-control" id="add-phone-no" type="tel" placeholder="Phone no(+91-****)">
-                        <input class="form-control" id="add-adhaar-no" type="tel" placeholder="Adhaar No-XXXX-XXXX-XXXX">
+                        <input class="form-control" id="add-adhaar-no" type="text" placeholder="Adhaar No-XXXX-XXXX-XXXX">
                         <button id="admin-add" type="button" class="btn btn-default">Add</button>
                       </div>
                     </form>
@@ -86,7 +84,7 @@
                     <h3>Last Added</h3>
                   </div>
                   <div class="card-text" id="last-added">
-                    
+
                 </div>
               </div>
             </div>
@@ -110,6 +108,35 @@
                   </div>
                 </div>
               </div>
+
+              <!--Send Notification-->
+              <div class="row justify-content-md-center">
+                <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-notification">
+                    Send Notification
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Send Notification to People</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="fa fa-close" style="color: White"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <input id="notification-message" class="form-control" type="text" placeholder="Notification Message Here">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          <button id="notification-send" type="button" class="btn btn-default">Send</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
 
             <div class="col-sm-4 col-12 col-md-5">
@@ -127,41 +154,14 @@
             </div>
 
           </div>
-          <!--Send Notification-->
-          <div class="row justify-content-md-center">
-            <!-- Button trigger modal -->
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-notification">
-                Send Notification
-              </button>
 
-              <!-- Modal -->
-              <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Send Notification to People</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="fa fa-close" style="color: White"></span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <input id="notification-message" class="form-control" type="text" placeholder="Notification Message Here">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button id="notification-send" type="button" class="btn btn-default">Send</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
     <!-- Scripts -->
     <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <script src="js/common.js" charset="utf-8"></script>
     <script src="js/admin-dashboard.js" charset="utf-8"></script>

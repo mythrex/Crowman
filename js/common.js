@@ -1,3 +1,5 @@
+var notifArr = [];
+
 //making an alert box
 function makeAlert(type,msg,time=3000){
   var alert = $(`
@@ -29,23 +31,62 @@ function fetchData(bankArr,dataObj){
     bankArr = JSON.parse(bankData);
   }
 }
-
-//send and getNotification
-function sendNotification(text,notifArr){
-  notifArr.push(text);
-  localStorage.setItem('notification',notifArr);
-}
-function getNotification(notifArr){
-  let arr = localStorage.getItem('notification');
-  if(arr){
-    notifArr = arr;
-  }
-}
 //add people to  line
 function addPeopleToLine(jqueryObj,data){
   for(let prop in data) {
     jqueryObj.append(`<span class="fa fa-user" crowman-id="${prop}"
     data-toggle="tooltip" data-placement="left"
     title="cowman-id: ${prop}">`);
+  }
+}
+
+//send and getNotification
+function showNotifications(){
+  var envelope = $("#envelope");
+  if(notifArr.length > 0){
+    envelope.addClass('active');
+    var notif  = $("#notifications");
+    notif.empty();
+    for (var index in notifArr) {
+      notif.append(`
+          <a href="#" class="dropdown-item">${notifArr[index]}</a>
+        `);
+    }
+  }
+  if(envelope.hasClass('active')){
+    envelope.parent().click(function(event) {
+      envelope.removeClass('active');
+    });
+  }
+}
+
+function sendNotification(text){
+  notifArr.splice(0,0,text);
+  localStorage.setItem('notification',notifArr.join(","));
+  showNotifications();
+}
+function getNotification(){
+  let notifString = localStorage.getItem("notification");
+  if(notifString){
+    notifArr = notifString.split(",");
+  }
+}
+
+//function to notify people about the Detaails
+function importantNotify(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  if(hours >= 14 && (minutes >= 0 || minutes <=30)){
+    makeAlert("warning","Lunch Time in Bank",3500);
+    sendNotification("Lunch Time in Bank");
+  }
+  else if(hours == 15){
+    makeAlert("warning","Bank is about to close in "+ (60 - minutes) +" minutes",3500);
+    sendNotification("Bank is about to close in "+ (60 - minutes) +" minutes");
+  }
+  else if(hours >= 16){
+    makeAlert("danger","Bank is closed now.",3500);
+    sendNotification("Bank is closed now.");
   }
 }

@@ -12,6 +12,9 @@ $(function() {
             window.open("admin-dashboard.html","_top");
           },500);
       }
+      else {
+        makeAlert("danger","Wrong Username or Password");
+      }
     }
     else {
       makeAlert("danger","Wrong Username or Password");
