@@ -77,16 +77,13 @@ function importantNotify(){
   var date = new Date();
   var hours = date.getHours();
   var minutes = date.getMinutes();
-  if(hours >= 14 && (minutes >= 0 || minutes <=30)){
+  if(hours >= 14 && (minutes >= 0 || minutes <=30) && hours < 15){
     makeAlert("warning","Lunch Time in Bank",3500);
-    sendNotification("Lunch Time in Bank");
   }
   else if(hours == 15){
     makeAlert("warning","Bank is about to close in "+ (60 - minutes) +" minutes",3500);
-    sendNotification("Bank is about to close in "+ (60 - minutes) +" minutes");
   }
-  else if(hours >= 16){
+  else if(hours >= 16 || (hours >= 0 && hours <= 10)){
     makeAlert("danger","Bank is closed now.",3500);
-    sendNotification("Bank is closed now.");
   }
 }

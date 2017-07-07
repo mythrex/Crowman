@@ -50,13 +50,14 @@ $(function loadPage(){
         //showing notifications
         getNotification();
         showNotifications();
-
-        //show important Notification
         importantNotify();
+
         //showLastAdded
         fetchLastAdded();
         showLastAdded(lastAdded["token-no"],lastAdded["name"],lastAdded["phone"],lastAdded["adhaar-no"]);
 
+
+          //functions
         function dispBankDet(ul,bankObj){
           var date = new Date();
           ul.empty().append(`
@@ -109,21 +110,23 @@ $(function loadPage(){
               <p><strong>adhaarNo: </strong>${adhaarNo}</p>
             `);
         }
+
         //function to add by Admin
         function addByAdmin(){
-          var name = $("#add-name").val();
-          var phoneNo = $("#add-phone-no").val();
-          var adhaarNo = $("#add-adhaar-no").val();
-          console.log(name,phoneNo,adhaarNo);
           var addBtn = $("#admin-add");
-          var id;
-          //traverse to last id
-          for(id in line){}
           addBtn.click(function(){
+            var name = $("#add-name").val();
+            var phoneNo = $("#add-phone-no").val();
+            var adhaarNo = $("#add-adhaar-no").val();
+
+            var id;
+            //traverse to last id
+            for(id in line){}
               bank.queue++;
               bankArr[0] = bank;
               dispBankDet(bankUl,bank);
               id = +id + 1;
+              console.log(id,name,phoneNo,adhaarNo);
               showLastAdded(id,name,phoneNo,adhaarNo);
               line[id - 1].next = id;
               line[id] = new Person(""+ id,name,phoneNo,adhaarNo);

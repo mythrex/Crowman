@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/common-style.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/dashboard.css">
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <!--Navbar-->
@@ -34,7 +32,6 @@
                   <span class="fa fa-envelope" id="envelope"></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="notifications">
-                  <a class="dropdown-item" href="#">Lunch in 30min</a>
                 </div>
               </div>
           </li>
@@ -46,7 +43,7 @@
     <div class="row">
       <div class="col-md-4 col-lg-3 col-xl-2 hidden-sm-down" id="sidebar">
         <ul class="sidebar-nav">
-          <li class="sidebar-link" id="display-for">Token No: 8756</li>
+          <li class="sidebar-link" id="display-for"></li>
           <li class="sidebar-link">
             Search for another token No.
             <input class="form-control" type="text" id="input-token-no" name="token-no" placeholder="Token No Here">
@@ -86,9 +83,9 @@
                 <div class="card-title">
                   <h2>Approximate time</h2>
                 </div>
-                <div class="card-text">
-                  <p>Time:</p>
+                <div class="card-text" id="approx-time">
                 </div>
+                <strong>It is recommended to reach 15 minutes before the approximate Time.</strong>
               </div>
             </div>
           </div>
@@ -105,7 +102,8 @@
                 </div>
                 <div class="card-text line-overview">
                   <span class="fa fa-university">Start Point:</span>
-
+                  <span id="line-overview">
+                  </span>
                 </div>
               </div>
             </div>
@@ -117,12 +115,7 @@
                 <div class="card-title">
                   <h2>More Info</h2>
                 </div>
-                <div class="card-text">
-                  <p>No of People before you: 10</p>
-                  <p>No of People before you: 10</p>
-                  <p>No of People before you: 10</p>
-                  <p>No of People before you: 10</p>
-                  <p>No of People before you: 10</p>
+                <div class="card-text" id="more-info">
                 </div>
               </div>
             </div>

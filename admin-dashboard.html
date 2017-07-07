@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/admin-dashboard.css">
   </head>
   <body>
-    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded fixed-top">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars"></span>
       </button>
@@ -40,7 +40,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid main-container">
       <div class="row">
         <div class="col-md-4 col-lg-3 col-xl-2 hidden-sm-down" id="sidebar">
           <ul class="sidebar-nav">
@@ -67,7 +67,7 @@
                     <form >
                       <div class="form-group">
                         <input class="form-control" id="add-name" type="text" placeholder="Name">
-                        <input class="form-control" id="add-phone-no" type="tel" placeholder="Phone no(+91-****)">
+                        <input class="form-control" id="add-phone-no" type="text" placeholder="Phone no(+91-****)">
                         <input class="form-control" id="add-adhaar-no" type="text" placeholder="Adhaar No-XXXX-XXXX-XXXX">
                         <button id="admin-add" type="button" class="btn btn-default">Add</button>
                       </div>

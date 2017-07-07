@@ -3,6 +3,8 @@
     "name": "Bank Of Baroda",
     "branch": "Rohini",
     "queue": 7,
-    "avgTime": 4
+    "avgTime": 4,
+    "lunch-time": "14:00 - 14:30",
+    "timings": "10:00 - 16:00"
   }
 ]
